@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
+# BackEnd
+1 Install all dependencies in 'backend' folder
+2 Install MongoDB, 
+3 create folder for DB 'data/db' using 'mkdir -p /data/db' 
+4 change access right using 'sudo chown yourUbuntuProfileName /data/db'
+5 run MongoDB using command 'mongod'
+6 install Robo3Tfor manage data base
+7 execute 'npm start dev' to start server
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
