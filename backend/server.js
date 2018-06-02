@@ -21,4 +21,4 @@ app.use('/graphiql', graphiqlExpress({
 
 app.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
 
-app.listen(4000, () => console.log('server ru on port 4000'))
+app.listen(4000, () => console.log('server run on port 4000'))
