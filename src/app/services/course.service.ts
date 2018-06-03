@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import { map } from 'rxjs/operators';
 
 import { Course, Query } from '../models';
+import { Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
@@ -15,7 +16,7 @@ export class CourseService {
 		private apollo: Apollo
 	) {}
 
-	getAllCourses(searchTerm: string) {
+	getAllCourses(searchTerm: string): Observable<Course[]> {
 		return this.apollo.watchQuery<Query>({
 			pollInterval: 500,
 			query: gql`

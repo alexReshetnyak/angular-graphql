@@ -1,0 +1,6 @@
+
+<div class="items-container">
+	<ng-container *ngFor="let course of courses | async">
+		<app-item [course] = 'course'></app-item>
+	</ng-container>
+</div>
