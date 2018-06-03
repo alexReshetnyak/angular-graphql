@@ -10,25 +10,25 @@ import { AppComponent } from './app.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    ApolloModule,
-    HttpClientModule,
-    HttpLinkModule,
-    MDBBootstrapModule.forRoot()
-  ],
-  schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+	],
+	imports: [
+		BrowserModule,
+		ApolloModule,
+		HttpClientModule,
+		HttpLinkModule,
+		MDBBootstrapModule.forRoot()
+	],
+	schemas: [ NO_ERRORS_SCHEMA ],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(apollo: Apollo,  httpLink: HttpLink) {
-    apollo.create({
-      link: httpLink.create({uri: 'http:/localhost:4000/graphql'}),
-      cache: new InMemoryCache()
-    });
-  }
- }
+	constructor(apollo: Apollo,  httpLink: HttpLink) {
+		apollo.create({
+			link: httpLink.create({uri: 'http:/localhost:4000/graphql'}),
+			cache: new InMemoryCache()
+		});
+	}
+}

@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+.md-form {
+	margin-bottom: 0;
+	.form-control {
+		padding-bottom: 0.2rem;
+	} 
+}
