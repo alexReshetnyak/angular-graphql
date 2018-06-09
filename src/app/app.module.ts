@@ -9,6 +9,7 @@ import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/list/item/item.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ItemComponent } from './components/list/item/item.component';
 		ApolloModule,
 		HttpClientModule,
 		HttpLinkModule,
-		MDBBootstrapModule.forRoot()
+		MDBBootstrapModule.forRoot(),
+		AppRoutingModule
 	],
 	schemas: [ NO_ERRORS_SCHEMA ],
 	providers: [],

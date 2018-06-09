@@ -17,13 +17,13 @@ export class ItemComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	downvote(id: string) {
+	private downvote(id: string) {
 		this.courseService.downvoteCourse(id)
 			.subscribe(({data}) => console.log('data downvoted', data)
 			, (err) => console.log(err, 'error'));
 	}
 
-	upvote(id: string) {
+	private upvote(id: string) {
 		this.courseService.upvoteCourse(id)
 			.subscribe(({data}) => console.log('data upvoted', data)
 			, (err) => console.log(err, 'error'));

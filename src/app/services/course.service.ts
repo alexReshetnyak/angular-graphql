@@ -5,18 +5,28 @@ import gql from 'graphql-tag';
 import { map } from 'rxjs/operators';
 
 import { Course, Query } from '../models';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class CourseService {
 
+	private _searchTerm: Subject<string> = new Subject();
+
+	public setSearchTerm(searchText: string) {
+		this._searchTerm.next(searchText);
+	}
+
+	public getSearchTerm(): Observable<string> {
+		return this._searchTerm.asObservable();
+	}
+
 	constructor(
 		private apollo: Apollo
 	) {}
 
-	getAllCourses(searchTerm: string): Observable<Course[]> {
+	public getAllCourses(searchTerm = ''): Observable<Course[]> {
 		return this.apollo.watchQuery<Query>({
 			pollInterval: 500,
 			query: gql`
@@ -42,7 +52,7 @@ export class CourseService {
 			);
 	}
 
-	upvoteCourse(id: string) {
+	public upvoteCourse(id: string) {
 		return this.apollo.mutate({
 			mutation: gql`
 				mutation upvote($id: String!) {
@@ -60,7 +70,7 @@ export class CourseService {
 		});
 	}
 
-	downvoteCourse(id: string) {
+	public downvoteCourse(id: string) {
 		return this.apollo.mutate({
 			mutation: gql`
 				mutation downvote($id: String!) {

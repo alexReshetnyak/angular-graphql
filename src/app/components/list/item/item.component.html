@@ -3,32 +3,32 @@
 	<div class="card card-cascade narrower">
 
 		<div class="view overlay hm-white-slight waves-light" mdbWavesEffect>
-				<img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" 
-					class="img-fluid" 
-					alt="">
-				<a>
-						<div class="mask"></div>
-				</a>
+			<img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" 
+				class="img-fluid" 
+				alt="">
+			<a>
+				<div class="mask"></div>
+			</a>
 		</div>
 
 		<div class="card-body">
-				<h5 class="pink-text"><i class="fa fa-cutlery"></i>{{course.topic}}</h5>
-				<h4 class="card-title">{{course.title}}</h4>
-				<h6 class="card subtitle">By {{course.author}}</h6>
-				<p class="card-text">
-					{{course.description}}
-				</p>
-				<a href="{{course.url}}" class="card-link">Go to ...</a><br>
-				<p>Vote: {{course.voteCount}}</p>
-				<button class="btn btn-danger waves-light" (click) = 'downvote(course.id)' mdbWavesEffect>
-					Downvote
-				</button>
-				<button class="btn btn-unique waves-light" (click) = 'upvote(course.id)' mdbWavesEffect>
-					Upvote
-				</button>
+			<h5 class="pink-text"><i class="fa fa-cutlery"></i>{{course.topic}}</h5>
+			<h4 class="card-title">{{course.title}}</h4>
+			<h6 class="card subtitle">By {{course.author}}</h6>
+			<p class="card-text">
+				{{course.description}}
+			</p>
+			<a href="{{course.url}}" class="card-link">Go to ...</a><br>
+			<p>Vote: {{course.voteCount}}</p>
+			<button class="btn btn-danger waves-light" (click) = 'downvote(course.id)' mdbWavesEffect>
+				Downvote
+			</button>
+			<button class="btn btn-unique waves-light" (click) = 'upvote(course.id)' mdbWavesEffect>
+				Upvote
+			</button>
 		</div>
 
 	</div>
 
 </div>
-            
+			

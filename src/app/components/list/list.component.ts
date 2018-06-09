@@ -1,16 +1,15 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
 import { Course } from '../../models';
 import { CourseService } from '../../services/course.service';
 import { Observable } from 'rxjs';
-// import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
 	selector: 'app-list',
 	templateUrl: './list.component.html',
 	styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit, OnChanges {
+export class ListComponent implements OnInit {
 	@Input() public searchTerm: string;
 	public courses: Observable<Course[]>;
 
@@ -20,9 +19,13 @@ export class ListComponent implements OnInit, OnChanges {
 
 	ngOnInit() {
 		this.courses = this.courseService.getAllCourses(this.searchTerm);
+		this.subscribeOnSearchChanges();
 	}
 
-	ngOnChanges(changes: SimpleChanges) {
-		this.courses = this.courseService.getAllCourses(this.searchTerm);
+	private subscribeOnSearchChanges() {
+		this.courseService.getSearchTerm()
+			.subscribe(searchText => {
+				this.courses = this.courseService.getAllCourses(searchText);
+			});
 	}
 }
