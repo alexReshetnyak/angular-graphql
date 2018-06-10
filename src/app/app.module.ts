@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/list/item/item.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { CarsListComponent } from './components/cars-list/cars-list.component';
+import { CarItemComponent } from './components/cars-list/car-item/car-item.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { AppRoutingModule } from './/app-routing.module';
 		AppComponent,
 		ListComponent,
 		ItemComponent,
+		CarsListComponent,
+		CarItemComponent
 	],
 	imports: [
 		BrowserModule,
