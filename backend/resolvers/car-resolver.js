@@ -1,14 +1,14 @@
 
 import mongoose from 'mongoose';
-import carModel from '../models/course';
+import carModel from '../models/car';
 
 const resolvers = {
   Query: {
     allCars: (root, {searchTerm}) => {
       if (searchTerm !== '') {
-        return courseModel.find({$text: {$search: searchTerm}}).sort({id: 'desc'});
+        return carModel.find({$text: {$search: searchTerm}}).sort({id: 'desc'});
       } else {
-        return courseModel.find().sort({id: 'desc'});
+        return carModel.find().sort({id: 'desc'});
       }
     },
     car: (root, {id}) => {

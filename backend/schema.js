@@ -1,6 +1,7 @@
 
 import { makeExecutableSchema } from 'graphql-tools';
-import resolvers from './resolvers';
+import courseResolver from './resolvers/course-resolver';
+import carResolver from './resolvers/car-resolver';
 
 const typeDefs = [`
   type Course {
@@ -12,9 +13,17 @@ const typeDefs = [`
     url: String
     voteCount: Int
   }
+  type Car {
+    id: String
+    brand: String
+    model: String
+    imageUrl: String
+  }
   type Query {
     allCourses(searchTerm: String): [Course]
     course(id: String!): Course
+    allCars(searchTerm: String): [Car]
+    car(id: String): Car
   }
   type Mutation {
     addCourse(
@@ -22,8 +31,16 @@ const typeDefs = [`
     ): Course
     upvote(id: String!): Course
     downvote(id: String): Course
+    addCar(
+      brand: String!, model: String!, imageUrl: String
+    ): Car
   }
 `];
+
+const resolvers = {
+  Query: (Object.assign(carResolver.Query, courseResolver.Query)),
+  Mutation: (Object.assign(carResolver.Mutation, courseResolver.Mutation))
+};
 
 const schema = makeExecutableSchema({
   typeDefs,

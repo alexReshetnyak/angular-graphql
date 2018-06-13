@@ -2,7 +2,7 @@
 <div class="items-container">
 	<ng-container *ngFor="let car of cars | async">
 		<div class="item-container col-md-12 col-lg-6">
-			<app-item [course] = 'car'></app-item>
+			<app-car-item [car] = 'car'></app-car-item>
 		</div>
 	</ng-container>
 </div>

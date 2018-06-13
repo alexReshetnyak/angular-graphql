@@ -2,4 +2,16 @@
 .view {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+
+// img {
+//   max-width: 100%;
+//   max-height: 100%;
+//   height: auto;
+// }
+img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
 }
